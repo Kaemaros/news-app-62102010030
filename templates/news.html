@@ -1,0 +1,41 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+        </br></br>
+        <form class="form-inline" style="float: right;">
+                <div class="input-group mb-3">
+                    <input name="search" type="text" id="search" class="form-control mr-sm-3" aria-label="Search" aria-describedby="basic-addon2" placeholder="ค้นหาข่าว">
+                    <div class="input-group-append">
+                        <input class="btn btn-outline-secondary" type="submit" value="ค้นหา">
+                    </div>
+                </div>
+        </form> </br></br></br>
+        </div>
+        <div class="col-md-12">
+                <div class="touch">                    
+                <div class="card text-left">
+                    <div class="card-body">
+                        <div class="row">
+                            {% for news in news %}
+                            <div class="col-md-4 mt-2">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <h5>{{news.title}}</h5>
+                                        <p class="card-text text">{{ news.description }}</p>                                        
+                                    </div>
+                                    <div class="text-right mr-2 mb-3">
+                                        <a href="{{ news.url }}" class="text-center btn btn-dark btn-danger">อ่านเพิ่มต่อ</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
